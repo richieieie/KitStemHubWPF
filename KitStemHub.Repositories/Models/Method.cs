@@ -11,5 +11,7 @@ public partial class Method
 
     public string NormalizedName { get; set; } = null!;
 
+    public bool? Status { get; set; }
+
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 }

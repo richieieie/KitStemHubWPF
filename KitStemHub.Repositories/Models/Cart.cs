@@ -9,7 +9,7 @@ public partial class Cart
 
     public int KitId { get; set; }
 
-    public int Quantity { get; set; }
+    public int? Quantity { get; set; }
 
     public virtual Kit Kit { get; set; } = null!;
 

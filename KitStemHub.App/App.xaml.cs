@@ -29,6 +29,9 @@ namespace KitStemHub.App
 
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
+            //Remember to delete this:
+            ServiceProvider.GetRequiredService<Window1>().Show();
+
 
         }
     }

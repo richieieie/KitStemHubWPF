@@ -3253,19 +3253,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\trung\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Code\\PRN212\\KitStemHubWPF\\KitStemHub.App\\KitStemHub.App.csproj",
+      "projectUniqueName": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.App\\KitStemHub.App.csproj",
       "projectName": "KitStemHub.App",
-      "projectPath": "D:\\Code\\PRN212\\KitStemHubWPF\\KitStemHub.App\\KitStemHub.App.csproj",
-      "packagesPath": "C:\\Users\\trung\\.nuget\\packages\\",
-      "outputPath": "D:\\Code\\PRN212\\KitStemHubWPF\\KitStemHub.App\\obj\\",
+      "projectPath": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.App\\KitStemHub.App.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.App\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\trung\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3280,8 +3280,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "D:\\Code\\PRN212\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj": {
-              "projectPath": "D:\\Code\\PRN212\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj"
+            "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj": {
+              "projectPath": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj"
             }
           }
         }
@@ -3319,7 +3319,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

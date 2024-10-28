@@ -25,5 +25,7 @@ public partial class Kit
 
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
+    public virtual Category Category { get; set; } = null!;
+
     public virtual ICollection<KitOrder> KitOrders { get; set; } = new List<KitOrder>();
 }

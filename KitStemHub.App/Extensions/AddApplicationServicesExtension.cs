@@ -1,5 +1,9 @@
-﻿using KitStemHub.Repositories.Models;
+﻿using KitStemHub.Repositories.IRepositories;
+using KitStemHub.Repositories.Models;
+using KitStemHub.Repositories.Repositories;
 using KitStemHub.Services.Helpers;
+using KitStemHub.Services.IServices;
+using KitStemHub.Services.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +28,11 @@ namespace KitStemHub.App.Extensions
 
             // WPF components
             services.AddTransient<LoginWindow>();
+            services.AddTransient<Window1>();
+
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+
 
             return services;
         }
