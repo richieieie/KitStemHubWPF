@@ -9,7 +9,7 @@ public partial class KitOrder
 
     public Guid OrderId { get; set; }
 
-    public int KitQuantity { get; set; }
+    public int? KitQuantity { get; set; }
 
     public virtual Kit Kit { get; set; } = null!;
 
