@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\App.xaml
-3317095513
+4-668813687
 
-7658811807
+8-627751786
 247-686828350
-LoginWindow.xaml;MainWindow.xaml;Window1.xaml;
+LoginWindow.xaml;MainWindow.xaml;OrderDashboardStaff.xaml;OrderDetail.xaml;
 
 False
 

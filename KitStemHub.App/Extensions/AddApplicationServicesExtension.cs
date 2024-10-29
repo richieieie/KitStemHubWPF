@@ -25,13 +25,15 @@ namespace KitStemHub.App.Extensions
             // Repositories
 
             // Services
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
 
             // WPF components
             services.AddTransient<LoginWindow>();
-            services.AddTransient<Window1>();
+            services.AddTransient<OrderDashboardStaff>();
 
-            services.AddScoped<IOrderService, OrderService>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
+           
+         
 
 
             return services;
