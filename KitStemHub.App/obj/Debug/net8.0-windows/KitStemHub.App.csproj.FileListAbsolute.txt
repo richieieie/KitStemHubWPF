@@ -146,11 +146,15 @@ D:\PRN212\project\KitStemHubWPF\KitStemHub.App\bin\Debug\net8.0-windows\KitStemH
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\KitStemHub.App.csproj.AssemblyReference.cache
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\LoginWindow.g.cs
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\OrderDashboardStaff.g.cs
+D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\OrderDetail.g.cs
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\App.g.cs
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\KitStemHub.App_MarkupCompile.cache
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\KitStemHub.App_MarkupCompile.lref
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\LoginWindow.baml
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\MainWindow.baml
+D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\OrderDashboardStaff.baml
+D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\OrderDetail.baml
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\KitStemHub.App.g.resources
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\KitStemHub.App.GeneratedMSBuildEditorConfig.editorconfig
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\KitStemHub.App.AssemblyInfoInputs.cache
@@ -163,5 +167,7 @@ D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\refint\K
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\KitStemHub.App.pdb
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\KitStemHub.App.genruntimeconfig.cache
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\ref\KitStemHub.App.dll
-D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\Window1.g.cs
-D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\Window1.baml
+D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\PaymentMethod\PaymentMethodAddWindow.g.cs
+D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\PaymentMethod\PaymentMethodView.g.cs
+D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\PaymentMethod\PaymentMethodAddWindow.baml
+D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\PaymentMethod\PaymentMethodView.baml

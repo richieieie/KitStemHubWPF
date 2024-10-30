@@ -10,5 +10,8 @@ namespace KitStemHub.Repositories.IRepositories
     public interface IOrderRepository : IGenericRepository<Order>
     {
         IEnumerable<Order> getOrderTest();
+        List<KitOrder> GetKitOrdersByOrderId(Guid orderId);
+
+        
     }
 }

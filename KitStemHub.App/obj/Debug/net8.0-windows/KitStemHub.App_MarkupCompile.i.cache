@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\App.xaml
-3317095513
+61270206848
 
-9-1445223593
+12-2078880748
 247-686828350
-LoginWindow.xaml;MainWindow.xaml;Window1.xaml;
+LoginWindow.xaml;MainWindow.xaml;OrderDashboardStaff.xaml;OrderDetail.xaml;PaymentMethod\PaymentMethodAddWindow.xaml;PaymentMethod\PaymentMethodView.xaml;
 
 True
 

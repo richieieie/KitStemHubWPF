@@ -10,7 +10,16 @@
     <Compile Update="LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Window1.xaml.cs">
+    <Compile Update="OrderDashboardStaff.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="OrderDetail.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PaymentMethod\PaymentMethodAddWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PaymentMethod\PaymentMethodView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -21,7 +30,16 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Window1.xaml">
+    <Page Update="OrderDashboardStaff.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="OrderDetail.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PaymentMethod\PaymentMethodAddWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PaymentMethod\PaymentMethodView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

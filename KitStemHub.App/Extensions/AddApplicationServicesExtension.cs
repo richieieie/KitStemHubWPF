@@ -1,4 +1,5 @@
-﻿using KitStemHub.Repositories.IRepositories;
+﻿using KitStemHub.App.PaymentMethod;
+using KitStemHub.Repositories.IRepositories;
 using KitStemHub.Repositories.Models;
 using KitStemHub.Repositories.Repositories;
 using KitStemHub.Services.Helpers;
@@ -23,15 +24,23 @@ namespace KitStemHub.App.Extensions
             services.AddAutoMapper(typeof(DefaultAutoMapperProfile));
 
             // Repositories
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IPaymentRepository, PaymentRepository>();
+            services.AddScoped<IPaymentMethodRepository, PaymentMethodRepository>();
 
             // Services
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IPaymentService, PaymentService>();
+            services.AddScoped<IPaymentMethodService, PaymentMethodService>();
+            
 
             // WPF components
             services.AddTransient<LoginWindow>();
-            services.AddTransient<Window1>();
+            services.AddTransient<OrderDashboardStaff>();
+            services.AddTransient<PaymentMethodView>();
 
-            services.AddScoped<IOrderService, OrderService>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
+           
+         
 
 
             return services;
