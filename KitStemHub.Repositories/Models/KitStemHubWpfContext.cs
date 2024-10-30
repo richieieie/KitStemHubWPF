@@ -41,7 +41,7 @@ public partial class KitStemHubWpfContext : DbContext
     {
         modelBuilder.Entity<Cart>(entity =>
         {
-            entity.HasKey(e => new { e.UserId, e.KitId }).HasName("PK__Cart__7B1E22066859EFA0");
+            entity.HasKey(e => new { e.UserId, e.KitId }).HasName("PK__Cart__7B1E220606C8EA79");
 
             entity.ToTable("Cart");
 
@@ -58,21 +58,19 @@ public partial class KitStemHubWpfContext : DbContext
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC071B744B77");
+            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC07267B60EE");
 
             entity.ToTable("Category");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Name).HasMaxLength(255);
         });
 
         modelBuilder.Entity<Kit>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Kit__3214EC072B10E050");
+            entity.HasKey(e => e.Id).HasName("PK__Kit__3214EC077EFB4AEB");
 
             entity.ToTable("Kit");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Breif).HasMaxLength(255);
             entity.Property(e => e.Description).HasMaxLength(255);
             entity.Property(e => e.ImageUrl)
@@ -88,7 +86,7 @@ public partial class KitStemHubWpfContext : DbContext
 
         modelBuilder.Entity<KitOrder>(entity =>
         {
-            entity.HasKey(e => new { e.KitId, e.OrderId }).HasName("PK__KitOrder__2557E11BB0E465B0");
+            entity.HasKey(e => new { e.KitId, e.OrderId }).HasName("PK__KitOrder__2557E11B4BD6FB58");
 
             entity.ToTable("KitOrder");
 
@@ -105,18 +103,17 @@ public partial class KitStemHubWpfContext : DbContext
 
         modelBuilder.Entity<Method>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Method__3214EC07031F3781");
+            entity.HasKey(e => e.Id).HasName("PK__Method__3214EC07E825D79F");
 
             entity.ToTable("Method");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Name).HasMaxLength(100);
             entity.Property(e => e.NormalizedName).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Order__3214EC079898F50C");
+            entity.HasKey(e => e.Id).HasName("PK__Order__3214EC070247DA3B");
 
             entity.ToTable("Order");
 
@@ -138,7 +135,7 @@ public partial class KitStemHubWpfContext : DbContext
 
         modelBuilder.Entity<Payment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Payment__3214EC07598E191F");
+            entity.HasKey(e => e.Id).HasName("PK__Payment__3214EC075F759071");
 
             entity.ToTable("Payment");
 
@@ -156,24 +153,23 @@ public partial class KitStemHubWpfContext : DbContext
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Role__3214EC0791CC11AD");
+            entity.HasKey(e => e.Id).HasName("PK__Role__3214EC0785EE4B47");
 
             entity.ToTable("Role");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.NormalizedName).HasMaxLength(100);
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User__3214EC078EA2422E");
+            entity.HasKey(e => e.Id).HasName("PK__User__3214EC07543A7864");
 
             entity.ToTable("User");
 
-            entity.HasIndex(e => e.Username, "UQ__User__536C85E4C56ED643").IsUnique();
+            entity.HasIndex(e => e.Username, "UQ__User__536C85E4BB2F83B3").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__User__A9D1053439D53D35").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__User__A9D10534CB685BD4").IsUnique();
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Address).HasMaxLength(255);

@@ -61,7 +61,7 @@ namespace KitStemHub.Services.Services
                 orderBy: q => q.OrderBy(o => o.CreatedAt),
                 skip: (page - 1) * pageSize,
                 take: pageSize,
-                includes: q => q.Include(o => o.User));
+                includes: q => q.Include(o => o.User).Include(o => o.Payments));
         }
 
         public bool updateOrderStatus(Order order)

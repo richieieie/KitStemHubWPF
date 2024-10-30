@@ -167,3 +167,7 @@ D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\refint\K
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\KitStemHub.App.pdb
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\KitStemHub.App.genruntimeconfig.cache
 D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\ref\KitStemHub.App.dll
+D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\PaymentMethod\PaymentMethodAddWindow.g.cs
+D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\PaymentMethod\PaymentMethodView.g.cs
+D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\PaymentMethod\PaymentMethodAddWindow.baml
+D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\PaymentMethod\PaymentMethodView.baml

@@ -9,7 +9,7 @@ namespace KitStemHub.Services.Helpers
 
         public DefaultAutoMapperProfile()
         {
-            
+
             CreateMap<KitOrder, KitInOrderDetailDTO>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Kit.Name))
                 .ForMember(dest => dest.Package, opt => opt.MapFrom(src => src.Kit.Breif))

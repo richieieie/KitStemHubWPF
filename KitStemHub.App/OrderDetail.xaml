@@ -8,6 +8,44 @@
         Title="OrderDetail" Height="450" Width="800">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="20">
+            <!-- Header Section -->
+            <TextBlock FontSize="20" FontWeight="Bold" Text="Chi tiết đơn hàng:" Margin="0,0,0,10"/>
+            <TextBlock FontSize="16" Foreground="Gray" x:Name="OrderIdHeaderText" Margin="0,5,0,20"/>
+
+            <!-- Order Information Section -->
+            <Border BorderThickness="1" BorderBrush="LightGray" CornerRadius="5" Padding="10" Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="Thông tin đơn hàng" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Mã đơn hàng: " FontWeight="Bold"/>
+                        <TextBlock x:Name="OrderIdDisplayText"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Ngày tạo: " FontWeight="Bold"/>
+                        <TextBlock x:Name="CreatedAtText"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Trạng thái: " FontWeight="Bold"/>
+                        <TextBlock x:Name="ShippingStatusText"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Địa chỉ giao hàng: " FontWeight="Bold"/>
+                        <TextBlock x:Name="ShippingAddressText"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Số điện thoại: " FontWeight="Bold"/>
+                        <TextBlock x:Name="PhoneNumberText"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Tổng giá: " FontWeight="Bold"/>
+                        <TextBlock x:Name="TotalPriceText"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Ghi chú: " FontWeight="Bold"/>
+                        <TextBlock x:Name="NoteText"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
             <!-- Kits List Section -->
             <TextBlock Text="Danh sách sản phẩm" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
             <ItemsControl x:Name="KitsList" Margin="0,0,0,20">
@@ -17,11 +55,8 @@
                             <Grid Margin="0,10">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
-                                    <!-- For the Image -->
                                     <ColumnDefinition Width="*" />
-                                    <!-- For the Product Details -->
                                     <ColumnDefinition Width="Auto" />
-                                    <!-- For the Total Price -->
                                 </Grid.ColumnDefinitions>
 
                                 <!-- Product Image -->

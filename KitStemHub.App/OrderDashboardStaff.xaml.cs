@@ -23,15 +23,16 @@ namespace KitStemHub.App
     public partial class OrderDashboardStaff : Window
     {
         private readonly IOrderService _orderService;
+        private readonly IPaymentService _paymentService;
         private int _currentPage = 1;
         private const int PageSize = 10;
         private int _totalPages = 1;
 
-        public OrderDashboardStaff(IOrderService orderService)
+        public OrderDashboardStaff(IOrderService orderService, IPaymentService paymentService)
         {
             InitializeComponent();
             _orderService = orderService;
-
+            _paymentService = paymentService;
             LoadOrders();
         }
 
@@ -108,8 +109,8 @@ namespace KitStemHub.App
                 // Calculate the subtotal
                 int subtotal = kitDetails.Sum(dto => dto.TotalPrice);
 
-                // Open the details window with KitInOrderDetailDTOs and subtotal
-                OrderDetail detailsWindow = new OrderDetail(kitDetails, subtotal);
+                // Open the details window with Order, KitInOrderDetailDTOs, and subtotal
+                OrderDetail detailsWindow = new OrderDetail(selectedOrder, kitDetails, subtotal);
                 detailsWindow.ShowDialog();
             }
         }
@@ -120,7 +121,7 @@ namespace KitStemHub.App
             if (sender is ComboBox comboBox && comboBox.DataContext is Order selectedOrder)
             {
                 // Get the newly selected status
-                string newStatus = (comboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+                string? newStatus = (comboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
                 if (newStatus != null && newStatus != selectedOrder.ShippingStatus)
                 {
                     // Update the status in the Order object
@@ -130,7 +131,29 @@ namespace KitStemHub.App
                     bool updateSuccess = _orderService.updateOrderStatus(selectedOrder);
                     if (updateSuccess)
                     {
-                        MessageBox.Show($"Order {selectedOrder.Id} status updated to {newStatus}", "Update Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        // Retrieve the related PaymentId (assuming one payment per order)
+                        bool paymentStatus = newStatus == "Giao hàng thành công";
+
+                        // Retrieve the related PaymentId (assuming one payment per order)
+                        var payment = selectedOrder.Payments?.FirstOrDefault();
+                        if (payment != null)
+                        {
+                            // Update the payment status
+                            bool paymentUpdateSuccess = _paymentService.UpdatePaymentStatus(paymentStatus, payment.Id);
+
+                            if (paymentUpdateSuccess)
+                            {
+                                MessageBox.Show($"Order {selectedOrder.Id} status updated to {newStatus} and payment status updated successfully.", "Update Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Order status updated, but failed to update payment status.", "Partial Update Success", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Order status updated, but no payment found to update.", "Partial Update Success", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
                     }
                     else
                     {
