@@ -1,0 +1,62 @@
+﻿<Window x:Class="KitStemHub.App.PaymentMethod.PaymentMethodView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KitStemHub.App.PaymentMethod"
+        mc:Ignorable="d"
+        Title="PaymentMethodView" Height="400" Width="658">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Panel: DataGrid with a Label above -->
+        <StackPanel Grid.Column="0" Margin="0,17,0,17">
+            <Label Content="Payment Methods" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+            <DataGrid x:Name="PaymentMethodsDataGrid" AutoGenerateColumns="False" Margin="0,0,10,0"
+                      IsReadOnly="True" SelectionMode="Single" SelectionChanged="PaymentMethodsDataGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="Auto"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                    <DataGridTextColumn Header="Normalized Name" Binding="{Binding NormalizedName}" Width="*"/>
+                    <DataGridCheckBoxColumn Header="Status" Binding="{Binding Status}" Width="Auto"/>
+                    <DataGridTemplateColumn Header="Actions" Width="80">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Toggle Status" Click="ToggleStatusButton_Click" Tag="{Binding}" Width="75"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+        <!-- Right Panel: Input Fields, Insert and Update Buttons -->
+        <StackPanel Margin="4,10,5,207" Grid.Column="1">
+            <Label Content="Manage Payment Method" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+            <!-- Input Fields for Adding/Updating Payment Methods -->
+            <TextBox x:Name="NameTextBox" Width="150" Margin="0,5,0,5" 
+         Foreground="Gray" 
+         Text="Payment Method Name" 
+         GotFocus="TextBox_GotFocus" 
+         LostFocus="TextBox_LostFocus"/>
+            <TextBox x:Name="NormalizedNameTextBox" Width="150" Margin="0,5,0,5" 
+         Foreground="Gray" 
+         Text="Normalized Name" 
+         GotFocus="TextBox_GotFocus" 
+         LostFocus="TextBox_LostFocus"/>
+
+            <!-- Insert and Update Buttons -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
+                <Button Content="Insert" Click="AddPaymentMethodButton_Click" Width="70" Margin="0,0,10,0"/>
+                <Button Content="Update" Click="UpdatePaymentMethodButton_Click" Width="70"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Back to Page Button (if needed) -->
+        <Button Grid.Column="1" Content="Back" HorizontalAlignment="Left" Height="27" Margin="58,303,0,0" VerticalAlignment="Top" Width="91"/>
+    </Grid>
+</Window>

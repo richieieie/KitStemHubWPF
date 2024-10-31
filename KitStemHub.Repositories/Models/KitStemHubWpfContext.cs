@@ -41,7 +41,7 @@ public partial class KitStemHubWpfContext : DbContext
     {
         modelBuilder.Entity<Cart>(entity =>
         {
-            entity.HasKey(e => new { e.UserId, e.KitId }).HasName("PK__Cart__7B1E22068BC52965");
+            entity.HasKey(e => new { e.UserId, e.KitId }).HasName("PK__Cart__7B1E220606C8EA79");
 
             entity.ToTable("Cart");
 
@@ -58,7 +58,7 @@ public partial class KitStemHubWpfContext : DbContext
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC07ED0BD43F");
+            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC07267B60EE");
 
             entity.ToTable("Category");
 
@@ -67,7 +67,7 @@ public partial class KitStemHubWpfContext : DbContext
 
         modelBuilder.Entity<Kit>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Kit__3214EC07E2784328");
+            entity.HasKey(e => e.Id).HasName("PK__Kit__3214EC077EFB4AEB");
 
             entity.ToTable("Kit");
 
@@ -86,7 +86,7 @@ public partial class KitStemHubWpfContext : DbContext
 
         modelBuilder.Entity<KitOrder>(entity =>
         {
-            entity.HasKey(e => new { e.KitId, e.OrderId }).HasName("PK__KitOrder__2557E11B826A9D73");
+            entity.HasKey(e => new { e.KitId, e.OrderId }).HasName("PK__KitOrder__2557E11B4BD6FB58");
 
             entity.ToTable("KitOrder");
 
@@ -103,7 +103,7 @@ public partial class KitStemHubWpfContext : DbContext
 
         modelBuilder.Entity<Method>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Method__3214EC07A1D6C6CA");
+            entity.HasKey(e => e.Id).HasName("PK__Method__3214EC07E825D79F");
 
             entity.ToTable("Method");
 
@@ -113,7 +113,7 @@ public partial class KitStemHubWpfContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Order__3214EC07BDBE48A9");
+            entity.HasKey(e => e.Id).HasName("PK__Order__3214EC070247DA3B");
 
             entity.ToTable("Order");
 
@@ -135,7 +135,7 @@ public partial class KitStemHubWpfContext : DbContext
 
         modelBuilder.Entity<Payment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Payment__3214EC0742D59060");
+            entity.HasKey(e => e.Id).HasName("PK__Payment__3214EC075F759071");
 
             entity.ToTable("Payment");
 
@@ -153,7 +153,7 @@ public partial class KitStemHubWpfContext : DbContext
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Role__3214EC0715174B9A");
+            entity.HasKey(e => e.Id).HasName("PK__Role__3214EC0785EE4B47");
 
             entity.ToTable("Role");
 
@@ -163,13 +163,13 @@ public partial class KitStemHubWpfContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User__3214EC07423691B6");
+            entity.HasKey(e => e.Id).HasName("PK__User__3214EC07543A7864");
 
             entity.ToTable("User");
 
-            entity.HasIndex(e => e.Username, "UQ__User__536C85E420354C35").IsUnique();
+            entity.HasIndex(e => e.Username, "UQ__User__536C85E4BB2F83B3").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__User__A9D105346E2D610A").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__User__A9D10534CB685BD4").IsUnique();
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Address).HasMaxLength(255);

@@ -26,7 +26,6 @@ namespace KitStemHub.App
         private IOrderService _orderService;
         public Window1(IOrderService orderService)
         {
-            InitializeComponent();
             _orderService = orderService;
             LoadOrders();
         }

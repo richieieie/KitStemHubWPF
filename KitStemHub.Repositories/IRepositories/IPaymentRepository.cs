@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace KitStemHub.Repositories.IRepositories
 {
-    public interface ICartRepository : IGenericRepository<Cart>
+    public interface IPaymentRepository : IGenericRepository<Payment>
     {
-        public IEnumerable<Cart> GetCartByUserId(Guid userId);
-        public Cart GetExistingKit(Guid userId, int kitId);
+       
+
+        
     }
 }
