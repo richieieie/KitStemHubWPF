@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.App\\KitStemHub.App.csproj": {}
+    "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.App\\KitStemHub.App.csproj": {}
   },
   "projects": {
-    "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.App\\KitStemHub.App.csproj": {
+    "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.App\\KitStemHub.App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.App\\KitStemHub.App.csproj",
+        "projectUniqueName": "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.App\\KitStemHub.App.csproj",
         "projectName": "KitStemHub.App",
-        "projectPath": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.App\\KitStemHub.App.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.App\\obj\\",
+        "projectPath": "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.App\\KitStemHub.App.csproj",
+        "packagesPath": "C:\\Users\\khanhhoang\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\khanhhoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,8 +29,8 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj": {
-                "projectPath": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj"
+              "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj": {
+                "projectPath": "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj"
               }
             }
           }
@@ -49,6 +49,14 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -68,21 +76,21 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Repositories\\KitStemHub.Repositories.csproj": {
+    "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.Repositories\\KitStemHub.Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Repositories\\KitStemHub.Repositories.csproj",
+        "projectUniqueName": "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.Repositories\\KitStemHub.Repositories.csproj",
         "projectName": "KitStemHub.Repositories",
-        "projectPath": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Repositories\\KitStemHub.Repositories.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Repositories\\obj\\",
+        "projectPath": "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.Repositories\\KitStemHub.Repositories.csproj",
+        "packagesPath": "C:\\Users\\khanhhoang\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\khanhhoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -159,21 +167,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj": {
+    "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj",
+        "projectUniqueName": "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj",
         "projectName": "KitStemHub.Services",
-        "projectPath": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Services\\obj\\",
+        "projectPath": "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.Services\\KitStemHub.Services.csproj",
+        "packagesPath": "C:\\Users\\khanhhoang\\.nuget\\packages\\",
+        "outputPath": "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\khanhhoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -188,8 +196,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Repositories\\KitStemHub.Repositories.csproj": {
-                "projectPath": "D:\\PRN212\\project\\KitStemHubWPF\\KitStemHub.Repositories\\KitStemHub.Repositories.csproj"
+              "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.Repositories\\KitStemHub.Repositories.csproj": {
+                "projectPath": "D:\\FPT\\Term 5\\PRN212\\GroupProject\\KitStemHubWPF\\KitStemHub.Repositories\\KitStemHub.Repositories.csproj"
               }
             }
           }
@@ -230,7 +238,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
