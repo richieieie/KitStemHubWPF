@@ -28,12 +28,18 @@ namespace KitStemHub.App.Extensions
             services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<IPaymentMethodRepository, PaymentMethodRepository>();
             services.AddScoped<ICartRepository, CartRepository>();
+            services.AddScoped<IKitRepository, KitRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             // Services
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IPaymentService, PaymentService>();
             services.AddScoped<IPaymentMethodService, PaymentMethodService>();
             services.AddScoped<ICartService, CartService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IKitService, KitService>();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             // WPF components
             services.AddTransient<LoginWindow>();
@@ -43,6 +49,10 @@ namespace KitStemHub.App.Extensions
            
          
 
+
+            services.AddTransient<KitCreateUI>();
+            services.AddTransient<KitDashboardManager>();
+            services.AddTransient<Window1>();
 
             return services;
         }

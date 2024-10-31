@@ -29,7 +29,9 @@ namespace KitStemHub.Services.Helpers
             //Map for KitOrder
             CreateMap<KitOrder, KitOrderCreateDTO>().ReverseMap();
 
-
+            //Map for Kit 
+            CreateMap<Kit, KitResponseDTO>().ReverseMap();
+            CreateMap<KitCreateDTO, Kit>().ReverseMap();
         }
     }
 }

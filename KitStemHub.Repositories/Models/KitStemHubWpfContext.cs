@@ -35,7 +35,7 @@ public partial class KitStemHubWpfContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=127.0.0.1,1433;Initial Catalog=KitStemHubWpf;Persist Security Info=True;User ID=sa;Password=12345;MultipleActiveResultSets=True;TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("Data Source=TRUNGNGUYEN\\SQLEXPRESS;Initial Catalog=KitStemHubWpf;Persist Security Info=True;User ID=sa;Password=12345;MultipleActiveResultSets=True;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -48,12 +48,12 @@ public partial class KitStemHubWpfContext : DbContext
             entity.HasOne(d => d.Kit).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.KitId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Cart__KitId__4F7CD00D");
+                .HasConstraintName("FK__Cart__KitId__628FA481");
 
             entity.HasOne(d => d.User).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Cart__UserId__4E88ABD4");
+                .HasConstraintName("FK__Cart__UserId__619B8048");
         });
 
         modelBuilder.Entity<Category>(entity =>
@@ -81,7 +81,7 @@ public partial class KitStemHubWpfContext : DbContext
             entity.HasOne(d => d.Category).WithMany(p => p.Kits)
                 .HasForeignKey(d => d.CategoryId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Kit__CategoryId__3F466844");
+                .HasConstraintName("FK__Kit__CategoryId__52593CB8");
         });
 
         modelBuilder.Entity<KitOrder>(entity =>
@@ -93,12 +93,12 @@ public partial class KitStemHubWpfContext : DbContext
             entity.HasOne(d => d.Kit).WithMany(p => p.KitOrders)
                 .HasForeignKey(d => d.KitId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__KitOrder__KitId__4AB81AF0");
+                .HasConstraintName("FK__KitOrder__KitId__5DCAEF64");
 
             entity.HasOne(d => d.Order).WithMany(p => p.KitOrders)
                 .HasForeignKey(d => d.OrderId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__KitOrder__OrderI__4BAC3F29");
+                .HasConstraintName("FK__KitOrder__OrderI__5EBF139D");
         });
 
         modelBuilder.Entity<Method>(entity =>
@@ -130,7 +130,7 @@ public partial class KitStemHubWpfContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Order__UserId__440B1D61");
+                .HasConstraintName("FK__Order__UserId__571DF1D5");
         });
 
         modelBuilder.Entity<Payment>(entity =>
@@ -144,11 +144,11 @@ public partial class KitStemHubWpfContext : DbContext
             entity.HasOne(d => d.Method).WithMany(p => p.Payments)
                 .HasForeignKey(d => d.MethodId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Payment__MethodI__47DBAE45");
+                .HasConstraintName("FK__Payment__MethodI__5AEE82B9");
 
             entity.HasOne(d => d.Order).WithMany(p => p.Payments)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__Payment__OrderId__46E78A0C");
+                .HasConstraintName("FK__Payment__OrderId__59FA5E80");
         });
 
         modelBuilder.Entity<Role>(entity =>
@@ -190,7 +190,7 @@ public partial class KitStemHubWpfContext : DbContext
 
             entity.HasOne(d => d.Role).WithMany(p => p.Users)
                 .HasForeignKey(d => d.RoleId)
-                .HasConstraintName("FK__User__RoleId__3A81B327");
+                .HasConstraintName("FK__User__RoleId__4D94879B");
         });
 
         OnModelCreatingPartial(modelBuilder);
