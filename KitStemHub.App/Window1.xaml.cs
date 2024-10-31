@@ -33,8 +33,8 @@ namespace KitStemHub.App
 
         private void LoadOrders()
         {
-            IEnumerable<Order> orders = _orderService.GetOrdersTest();
-            OrdersDataGrid.ItemsSource = orders;
+            //IEnumerable<Order> orders = _orderService.GetOrdersTest();
+            //OrdersDataGrid.ItemsSource = orders;
         }
     }
 }

@@ -14,9 +14,4 @@
     <ProjectReference Include="..\KitStemHub.Repositories\KitStemHub.Repositories.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTOs\Responses\" />
-    <Folder Include="DTOs\Requests\" />
-  </ItemGroup>
-
 </Project>

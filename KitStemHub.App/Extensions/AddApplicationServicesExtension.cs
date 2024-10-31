@@ -23,16 +23,19 @@ namespace KitStemHub.App.Extensions
             services.AddAutoMapper(typeof(DefaultAutoMapperProfile));
 
             // Repositories
+            services.AddScoped<IKitRepository, KitRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             // Services
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IKitService, KitService>();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             // WPF components
             services.AddTransient<LoginWindow>();
+            services.AddTransient<KitCreateUI>();
             services.AddTransient<Window1>();
-
-            services.AddScoped<IOrderService, OrderService>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
-
 
             return services;
         }
