@@ -27,12 +27,13 @@ namespace KitStemHub.App.Extensions
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<IPaymentMethodRepository, PaymentMethodRepository>();
+            services.AddScoped<ICartRepository, CartRepository>();
 
             // Services
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IPaymentService, PaymentService>();
             services.AddScoped<IPaymentMethodService, PaymentMethodService>();
-            
+            services.AddScoped<ICartService, CartService>();
 
             // WPF components
             services.AddTransient<LoginWindow>();

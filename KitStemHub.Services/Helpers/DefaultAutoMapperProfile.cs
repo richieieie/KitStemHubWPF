@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using KitStemHub.Repositories.Models;
+using KitStemHub.Services.DTOs.Requests;
 using KitStemHub.Services.DTOs.Responses;
+using System.Security.Cryptography;
 
 namespace KitStemHub.Services.Helpers
 {
@@ -18,7 +20,16 @@ namespace KitStemHub.Services.Helpers
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Kit.ImageUrl))
                 .ForMember(dest => dest.TotalPrice, opt => opt.MapFrom(src => (src.Kit.Price * (src.KitQuantity ?? 0))));
 
-            
+            //Map for cart
+            CreateMap<Cart, CartCreateDTO>().ReverseMap();
+
+            //Map for Order
+            CreateMap<Order, OrderCreateDTO>().ReverseMap();
+
+            //Map for KitOrder
+            CreateMap<KitOrder, KitOrderCreateDTO>().ReverseMap();
+
+
         }
     }
 }
