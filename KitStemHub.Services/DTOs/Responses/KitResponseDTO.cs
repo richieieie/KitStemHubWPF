@@ -1,4 +1,6 @@
-﻿namespace KitStemHub.Services.DTOs.Responses
+﻿using KitStemHub.Repositories.Models;
+
+namespace KitStemHub.Services.DTOs.Responses
 {
     public class KitResponseDTO
     {
@@ -19,5 +21,7 @@
         public string? ImageUrl { get; set; }
 
         public bool? Status { get; set; }
+
+        public Category? Category { get; set; }
     }
 }

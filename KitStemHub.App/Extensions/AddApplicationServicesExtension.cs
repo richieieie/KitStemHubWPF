@@ -35,6 +35,7 @@ namespace KitStemHub.App.Extensions
             // WPF components
             services.AddTransient<LoginWindow>();
             services.AddTransient<KitCreateUI>();
+            services.AddTransient<KitDashboardManager>();
             services.AddTransient<Window1>();
 
             return services;

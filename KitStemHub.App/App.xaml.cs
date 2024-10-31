@@ -30,7 +30,7 @@ namespace KitStemHub.App
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
             //Remember to delete this:
-            ServiceProvider.GetRequiredService<KitCreateUI>().Show();
+            ServiceProvider.GetRequiredService<KitDashboardManager>().Show();
         }
     }
 
