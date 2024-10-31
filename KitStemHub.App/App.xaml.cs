@@ -30,7 +30,7 @@ namespace KitStemHub.App
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
             //Remember to delete this:
-            var mainWindow = ServiceProvider.GetRequiredService<OrderDashboardStaff>();
+            var mainWindow = ServiceProvider.GetRequiredService<UserWindow>();
             mainWindow.Show();
 
 

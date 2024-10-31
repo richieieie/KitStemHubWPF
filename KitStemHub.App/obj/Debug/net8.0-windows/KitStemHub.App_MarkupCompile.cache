@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\PRN212\project\KitStemHubWPF\KitStemHub.App\obj\Debug\net8.0-windows\
+E:\Coding\WPFSTEM\KitStemHub.App\obj\Debug\net8.0-windows\
 KitStemHub.App
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\PRN212\project\KitStemHubWPF\KitStemHub.App\App.xaml
-4-668813687
+E:\Coding\WPFSTEM\KitStemHub.App\App.xaml
+6-330186263
 
-8-627751786
-247-686828350
-LoginWindow.xaml;MainWindow.xaml;OrderDashboardStaff.xaml;OrderDetail.xaml;
+101483596928
+247503472166
+CategoryWindow.xaml;LoginWindow.xaml;MainWindow.xaml;OrderDashboardStaff.xaml;OrderDetail.xaml;UserWindow.xaml;
 
 False
 
