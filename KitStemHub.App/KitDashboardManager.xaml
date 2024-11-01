@@ -27,10 +27,11 @@
             <Label FontSize="24" VerticalAlignment="Center">Tên Kit:</Label>
             <TextBox x:Name="kitNameSearchTxtBox" Width="250" Height="30" Margin="10,0,0,0"/>
             <Label FontSize="24" VerticalAlignment="Center" Margin="50,0,0,0">Thể loại:</Label>
-            <ComboBox x:Name="categorySearchCb" Width="200" Height="30" Margin="10,0,0,0" DisplayMemberPath="Name" SelectedValuePath="Id"></ComboBox>
-            <Button x:Name="searchBtn" Content="Tìm Kiếm" Width="100" Height="30" Margin="50,0,0,0"/>
+            <ComboBox x:Name="categorySearchCb" Width="200" Height="30" Margin="10,0,0,0" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedIndex="0"></ComboBox>
+            <Button x:Name="searchBtn" Content="Tìm Kiếm" Width="100" Height="30" Margin="50,0,0,0" Click="searchBtn_Click"/>
+            <Button x:Name="createBtn" Content="Thêm mới"  Width="100" Height="30" Margin="50,0,0,0" Click="createBtn_Click"/>
         </StackPanel>
-        <DataGrid x:Name="kitDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Height="700" VerticalAlignment="Top" Margin="0,0,0,200" Grid.Row="2">
+        <DataGrid x:Name="kitDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Height="800" VerticalAlignment="Top" Margin="20,0,20,200" Grid.Row="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã Kit" Binding="{Binding Id}" Width="50"/>
                 <DataGridTextColumn Header="Tên Kit" Binding="{Binding Name}" Width="150"/>
@@ -40,11 +41,21 @@
                 <DataGridTextColumn Header="Giá Bán" Binding="{Binding Price}" Width="100"/>
                 <DataGridTextColumn Header="Thể Loại" Binding="{Binding Category.Name}" Width="100"/>
                 <DataGridTextColumn Header="Tình Trạng" Binding="{Binding Status}" Width="100"/>
+                <DataGridTemplateColumn Header="Hành động" Width="300">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button Tag="{Binding Id}" x:Name="deleteOrRestoreBtn" Content="Vô hiệu hóa" Width="100" Height="30" Click="deleteOrRestoreBtn_Click"/>
+                                <Button Tag="{Binding Id}" x:Name="updateBtn" Content="Sửa" Width="100" Height="30" Click="editBtn_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,20" Grid.Row="3">
-            <Button x:Name="previousBtn" FontSize="24" Content="Previous" Width="120" Margin="10,0" Height="50"/>
-            <Button x:Name="nextBtn" FontSize="24" Content="Next" Width="120" Margin="10,0" Height="50"/>
+            <Button x:Name="previousBtn" FontSize="24" Content="Previous" Width="120" Margin="10,0" Height="50" Click="previousBtn_Click"/>
+            <Button x:Name="nextBtn" FontSize="24" Content="Next" Width="120" Margin="10,0" Height="50" Click="nextBtn_Click"/>
         </StackPanel>
     </Grid>
 </Window>

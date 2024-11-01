@@ -82,7 +82,7 @@ namespace KitStemHub.App
             var result = _kitService.Create(kitCreateDTO);
             if (result)
             {
-                MessageBox.Show("Kit created successfully");
+                Close();
             }
             else
             {

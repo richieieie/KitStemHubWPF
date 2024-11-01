@@ -17,14 +17,14 @@ namespace KitStemHub.Services.Services
             _mapper = mapper;
         }
 
-        public IEnumerable<KitResponseDTO> Get(int page, int pageSize, string kitName, int categoryId)
+        public (IEnumerable<KitResponseDTO>, int) Get(int page, int pageSize, string kitName, int categoryId)
         {
-            var (kits, _) = _kitRepository.GetFilter(k => k.Name!.Contains(kitName ?? "") && (categoryId == 0 || k.CategoryId == categoryId),
+            var (kits, totalPages) = _kitRepository.GetFilter(k => k.Name!.Contains(kitName ?? "") && (categoryId == 0 || k.CategoryId == categoryId),
                                                        query => query.OrderBy(k => k.Id),
                                                        page * pageSize,
                                                        pageSize,
                                                        query => query.Include(k => k.Category));
-            return _mapper.Map<IEnumerable<KitResponseDTO>>(kits);
+            return (_mapper.Map<IEnumerable<KitResponseDTO>>(kits), totalPages);
         }
 
         public bool Create(KitCreateDTO kitCreateDTO)
@@ -50,6 +50,18 @@ namespace KitStemHub.Services.Services
                 return isSuccess;
             }
             catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteOrRestoreById(int id)
+        {
+            try
+            {
+                return _kitRepository.DeleteOrRestoreById(id);
+            }
+            catch
             {
                 return false;
             }
