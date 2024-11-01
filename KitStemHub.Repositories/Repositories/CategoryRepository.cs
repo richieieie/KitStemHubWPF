@@ -8,10 +8,5 @@ namespace KitStemHub.Repositories.Repositories
         public CategoryRepository(KitStemHubWpfContext context) : base(context)
         {
         }
-
-        IEnumerable<Category> ICategoryRepository.GetAll()
-        {
-            return _dbContext.Categories.ToList();
-        }
     }
 }
