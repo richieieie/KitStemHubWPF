@@ -37,15 +37,15 @@ bld/
 
 # Ignore all bin folders
 **/bin/
-KitStemHub.App/**/bin
-KitStemHub.Repositories/**/bin
-KitStemHub.Services/**/bin
+KitStemHub.App/**/bin/
+KitStemHub.Repositories/**/bin/
+KitStemHub.Services/**/bin/
 
 # Ignore all obj folders
 **/obj/
-KitStemHub.App/**/obj
-KitStemHub.Repositories/**/obj
-KitStemHub.Services/**/obj
+KitStemHub.App/**/obj/
+KitStemHub.Repositories/**/obj/
+KitStemHub.Services/**/obj/
 
 
 # Visual Studio 2015/2017 cache/options directory
