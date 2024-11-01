@@ -9,6 +9,7 @@ namespace KitStemHub.Repositories.IRepositories
 {
     public interface ICartRepository : IGenericRepository<Cart>
     {
+        List<Cart> GetAllCartByUserId(Guid userId);
         public IEnumerable<Cart> GetCartByUserId(Guid userId);
         public Cart GetExistingKit(Guid userId, int kitId);
     }

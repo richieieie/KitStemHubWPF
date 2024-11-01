@@ -2,6 +2,7 @@
 using KitStemHub.Repositories.IRepositories;
 using KitStemHub.Repositories.Models;
 using KitStemHub.Services.DTOs.Requests;
+using KitStemHub.Services.DTOs.Responses;
 using KitStemHub.Services.IServices;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,13 @@ namespace KitStemHub.Services.Services
                 result = _cartRepository.Create(newKit);
                 return result;
             }
+        }
+
+        public List<CartResponseDTO> GetCart(Guid userId)
+        {
+            var carts = _cartRepository.GetAllCartByUserId(userId);
+            var cartDTO = _mapper.Map<List<CartResponseDTO>>(carts);
+            return cartDTO;
         }
 
         public bool RemoveAll(Guid userId)

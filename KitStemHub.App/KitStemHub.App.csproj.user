@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CartUI.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="KitCreateUI.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -30,6 +33,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="CartUI.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="KitCreateUI.xaml">
       <SubType>Designer</SubType>
     </Page>
