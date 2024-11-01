@@ -2,8 +2,7 @@
 
 namespace KitStemHub.Repositories.IRepositories
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IGenericRepository<Category>
     {
-        IEnumerable<Category> GetAll();
     }
 }

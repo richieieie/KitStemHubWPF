@@ -37,10 +37,15 @@ bld/
 
 # Ignore all bin folders
 **/bin/
-bin
+KitStemHub.App/bin/
+KitStemHub.Repositories/bin/
+KitStemHub.Services/bin/
+
 # Ignore all obj folders
 **/obj/
-obj
+KitStemHub.App/obj/
+KitStemHub.Repositories/obj/
+KitStemHub.Services/obj/
 
 
 # Visual Studio 2015/2017 cache/options directory
@@ -492,4 +497,3 @@ $RECYCLE.BIN/
 *.swp
 
 !KitStemHub.App/
-!KitStemHub.App/**

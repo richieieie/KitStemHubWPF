@@ -32,9 +32,8 @@ namespace KitStemHub.App
 
             //Remember to delete this:
             var mainWindow = ServiceProvider.GetRequiredService<CartUI>();
+
             mainWindow.Show();
-
-
         }
     }
 

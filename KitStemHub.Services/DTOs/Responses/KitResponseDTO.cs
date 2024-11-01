@@ -20,7 +20,7 @@ namespace KitStemHub.Services.DTOs.Responses
 
         public string? ImageUrl { get; set; }
 
-        public bool? Status { get; set; }
+        public string? Status { get; set; }
 
         public Category? Category { get; set; }
     }

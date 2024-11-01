@@ -4,6 +4,6 @@ namespace KitStemHub.Services.IServices
 {
     public interface ICategoryService
     {
-        IEnumerable<Category> GetAll();
+        List<Category> GetAll();
     }
 }

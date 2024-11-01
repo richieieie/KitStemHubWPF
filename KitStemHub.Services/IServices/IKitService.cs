@@ -5,7 +5,8 @@ namespace KitStemHub.Services.IServices
 {
     public interface IKitService
     {
-        IEnumerable<KitResponseDTO> Get(int page, int pageSize, string kitName, int categoryId);
+        (IEnumerable<KitResponseDTO>, int) Get(int page, int pageSize, string kitName, int categoryId);
         bool Create(KitCreateDTO kitCreateDTO);
+        bool DeleteOrRestoreById(int id);
     }
 }

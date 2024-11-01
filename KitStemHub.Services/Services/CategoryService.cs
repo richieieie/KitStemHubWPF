@@ -16,7 +16,7 @@ namespace KitStemHub.Services.Services
         {
             _categoryRepository = categoryRepository;
         }
-        public IEnumerable<Category> GetAll()
+        public List<Category> GetAll()
         {
             return _categoryRepository.GetAll();
         }
