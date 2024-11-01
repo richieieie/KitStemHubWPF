@@ -125,7 +125,7 @@ namespace KitStemHub.App {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KitStemHub.App;component/kitcreateui.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KitStemHub.App;V1.0.0.0;component/kitcreateui.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\KitCreateUI.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -109,7 +109,7 @@ namespace KitStemHub.App {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KitStemHub.App;component/kitdashboardmanager.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KitStemHub.App;V1.0.0.0;component/kitdashboardmanager.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\KitDashboardManager.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

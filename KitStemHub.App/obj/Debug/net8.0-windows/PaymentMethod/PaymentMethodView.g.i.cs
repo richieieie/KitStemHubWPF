@@ -77,7 +77,7 @@ namespace KitStemHub.App.PaymentMethod {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KitStemHub.App;component/paymentmethod/paymentmethodview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KitStemHub.App;V1.0.0.0;component/paymentmethod/paymentmethodview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\PaymentMethod\PaymentMethodView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

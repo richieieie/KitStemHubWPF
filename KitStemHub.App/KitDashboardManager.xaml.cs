@@ -92,6 +92,7 @@ namespace KitStemHub.App
         private void editBtn_Click(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
+            var kitId = (int)button.Tag;
         }
     }
 }
