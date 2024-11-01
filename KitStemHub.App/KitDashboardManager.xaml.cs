@@ -25,6 +25,7 @@ namespace KitStemHub.App
             InitializeComponent();
             Loaded += KitDataGrid_Loaded;
             Loaded += CategorySearch_Loaded;
+            Application.Current.Resources["user"] = new User() { Email = "khanhcohonkhongdeptrai@example.com" };
         }
 
         private void CategorySearch_Loaded(object sender, RoutedEventArgs e)
@@ -71,6 +72,7 @@ namespace KitStemHub.App
         private void createBtn_Click(object sender, RoutedEventArgs e)
         {
             var createKitWindow = _serviceProvider.GetRequiredService<KitCreateUI>();
+            createKitWindow.KitLoaded = KitDataGrid_Loaded;
             createKitWindow.Show();
         }
 
@@ -79,13 +81,14 @@ namespace KitStemHub.App
             var button = (Button)sender;
             var kitId = (int)button.Tag;
             var isSuccess = _kitService.DeleteOrRestoreById(kitId);
-            if (!isSuccess)
+            if (isSuccess)
             {
                 MessageBox.Show("Cập nhật trạng thái của Kit thành công!");
+                KitDataGrid_Loaded(sender, e);
             }
             else
             {
-                MessageBox.Show("Cập nhật trạng thái của Kit Thất bại!");
+                MessageBox.Show("Cập nhật trạng thái của Kit thất bại!");
             }
         }
 
@@ -93,6 +96,10 @@ namespace KitStemHub.App
         {
             var button = (Button)sender;
             var kitId = (int)button.Tag;
+            var updateKitWindow = _serviceProvider.GetRequiredService<KitUpdateUI>();
+            updateKitWindow.KitId = kitId;
+            updateKitWindow.KitLoaded = KitDataGrid_Loaded;
+            updateKitWindow.Show();
         }
     }
 }
