@@ -185,8 +185,14 @@ namespace KitStemHub.Repositories.Repositories
         public virtual async Task<bool> CreateAsync(T entity)
         {
             _dbContext.Add(entity);
-            return await _dbContext.SaveChangesAsync() > 0;
+            var result = await _dbContext.SaveChangesAsync() > 0;
+
+            // Detach the entity after saving to avoid tracking conflicts
+            _dbContext.Entry(entity).State = EntityState.Detached;
+
+            return result;
         }
+
 
         public virtual async Task<bool> CreateAsync(IEnumerable<T> entities)
         {
@@ -232,6 +238,7 @@ namespace KitStemHub.Repositories.Repositories
         public virtual void PrepareCreate(T entity)
         {
             _dbContext.Add(entity);
+
         }
 
         public virtual void PrepareCreate(IEnumerable<T> entities)
