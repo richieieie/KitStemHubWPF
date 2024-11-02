@@ -1,4 +1,5 @@
-﻿using KitStemHub.Repositories.IRepositories;
+﻿using KitStemHub.App.PaymentMethod;
+using KitStemHub.Repositories.IRepositories;
 using KitStemHub.Repositories.Models;
 using KitStemHub.Repositories.Repositories;
 using KitStemHub.Services.Helpers;
@@ -23,18 +24,35 @@ namespace KitStemHub.App.Extensions
             services.AddAutoMapper(typeof(DefaultAutoMapperProfile));
 
             // Repositories
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IPaymentRepository, PaymentRepository>();
+            services.AddScoped<IPaymentMethodRepository, PaymentMethodRepository>();
+            services.AddScoped<ICartRepository, CartRepository>();
+            services.AddScoped<IKitRepository, KitRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             // Services
-            services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IPaymentService, PaymentService>();
+            services.AddScoped<IPaymentMethodService, PaymentMethodService>();
+            services.AddScoped<ICartService, CartService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IKitService, KitService>();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             // WPF components
             services.AddTransient<LoginWindow>();
             services.AddTransient<OrderDashboardStaff>();
-            services.AddTransient<CategoryWindow>();
-            services.AddTransient<UserWindow>();
+            services.AddTransient<PaymentMethodView>();
+
+           
+         
+
+
+            services.AddTransient<KitCreateUI>();
+            services.AddTransient<KitDashboardManager>();
+            services.AddTransient<Window1>();
 
             return services;
         }

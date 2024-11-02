@@ -1,4 +1,4 @@
-﻿using KitStemHub.Repositories.Models;
+using KitStemHub.Repositories.Models;
 using KitStemHub.Repositories.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;

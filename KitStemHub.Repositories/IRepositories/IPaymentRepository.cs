@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace KitStemHub.Repositories.IRepositories
 {
-    internal interface IPaymentRepository 
+    public interface IPaymentRepository : IGenericRepository<Payment>
     {
-
+       
 
         
     }

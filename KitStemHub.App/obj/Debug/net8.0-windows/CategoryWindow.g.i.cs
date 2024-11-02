@@ -116,7 +116,7 @@ namespace KitStemHub.App {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/KitStemHub.App;component/categorywindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/KitStemHub.App;V1.0.0.0;component/categorywindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\CategoryWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

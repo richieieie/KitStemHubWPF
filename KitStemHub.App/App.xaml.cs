@@ -1,4 +1,5 @@
 ﻿using KitStemHub.App.Extensions;
+using KitStemHub.App.PaymentMethod;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Configuration;
@@ -30,10 +31,8 @@ namespace KitStemHub.App
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
             //Remember to delete this:
-            var mainWindow = ServiceProvider.GetRequiredService<UserWindow>();
+            var mainWindow = ServiceProvider.GetRequiredService<KitDashboardManager>();
             mainWindow.Show();
-
-
         }
     }
 

@@ -15,5 +15,6 @@ namespace KitStemHub.Services.DTOs.Responses
         public int Quantity { get; set; }
         public int TotalPrice => Price * Quantity;
         public string ImageUrl { get; set; }
+
     }
 }

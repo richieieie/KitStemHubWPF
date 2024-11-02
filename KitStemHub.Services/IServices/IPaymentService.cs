@@ -9,6 +9,6 @@ namespace KitStemHub.Services.IServices
     public interface IPaymentService
     {
 
-        public bool updatePaymentStatus(bool status);
+        public bool UpdatePaymentStatus(bool status, Guid paymentId);
     }
 }

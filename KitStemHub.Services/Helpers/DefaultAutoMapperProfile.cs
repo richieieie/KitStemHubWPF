@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using KitStemHub.Repositories.Models;
+using KitStemHub.Services.DTOs.Requests;
 using KitStemHub.Services.DTOs.Responses;
+using System.Security.Cryptography;
 
 namespace KitStemHub.Services.Helpers
 {
@@ -8,7 +10,7 @@ namespace KitStemHub.Services.Helpers
     {
         public DefaultAutoMapperProfile()
         {
-            // Existing KitOrder to KitInOrderDetailDTO mapping
+
             CreateMap<KitOrder, KitInOrderDetailDTO>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Kit.Name))
                 .ForMember(dest => dest.Package, opt => opt.MapFrom(src => src.Kit.Breif))
@@ -17,10 +19,19 @@ namespace KitStemHub.Services.Helpers
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.Kit.ImageUrl))
                 .ForMember(dest => dest.TotalPrice, opt => opt.MapFrom(src => (src.Kit.Price * (src.KitQuantity ?? 0))));
 
-            // Add Category to CategoryDTO mapping
-            CreateMap<Category, CategoryDTO>()
-                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status ?? false)) // handle nullable Status
-                .ReverseMap();
+            //Map for cart
+            CreateMap<Cart, CartCreateDTO>().ReverseMap();
+
+            //Map for Order
+            CreateMap<Order, OrderCreateDTO>().ReverseMap();
+
+            //Map for KitOrder
+            CreateMap<KitOrder, KitOrderCreateDTO>().ReverseMap();
+
+            //Map for Kit 
+            CreateMap<Kit, KitResponseDTO>()
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status == true ? "Có sẵn" : "Không có sẵn"));
+            CreateMap<KitCreateDTO, Kit>().ReverseMap();
         }
     }
 }

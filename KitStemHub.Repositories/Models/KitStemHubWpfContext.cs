@@ -35,44 +35,42 @@ public partial class KitStemHubWpfContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=JARVIS;Initial Catalog=KitStemHubWpf;Persist Security Info=True;User ID=sa;Password=12345;MultipleActiveResultSets=True;TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("Data Source=TRUNGNGUYEN\\SQLEXPRESS;Initial Catalog=KitStemHubWpf;Persist Security Info=True;User ID=sa;Password=12345;MultipleActiveResultSets=True;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Cart>(entity =>
         {
-            entity.HasKey(e => new { e.UserId, e.KitId }).HasName("PK__Cart__7B1E22066859EFA0");
+            entity.HasKey(e => new { e.UserId, e.KitId }).HasName("PK__Cart__7B1E220606C8EA79");
 
             entity.ToTable("Cart");
 
             entity.HasOne(d => d.Kit).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.KitId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Cart__KitId__4F7CD00D");
+                .HasConstraintName("FK__Cart__KitId__628FA481");
 
             entity.HasOne(d => d.User).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Cart__UserId__4E88ABD4");
+                .HasConstraintName("FK__Cart__UserId__619B8048");
         });
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC071B744B77");
+            entity.HasKey(e => e.Id).HasName("PK__Category__3214EC07267B60EE");
 
             entity.ToTable("Category");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Name).HasMaxLength(255);
         });
 
         modelBuilder.Entity<Kit>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Kit__3214EC072B10E050");
+            entity.HasKey(e => e.Id).HasName("PK__Kit__3214EC077EFB4AEB");
 
             entity.ToTable("Kit");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Breif).HasMaxLength(255);
             entity.Property(e => e.Description).HasMaxLength(255);
             entity.Property(e => e.ImageUrl)
@@ -83,40 +81,39 @@ public partial class KitStemHubWpfContext : DbContext
             entity.HasOne(d => d.Category).WithMany(p => p.Kits)
                 .HasForeignKey(d => d.CategoryId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Kit__CategoryId__3F466844");
+                .HasConstraintName("FK__Kit__CategoryId__52593CB8");
         });
 
         modelBuilder.Entity<KitOrder>(entity =>
         {
-            entity.HasKey(e => new { e.KitId, e.OrderId }).HasName("PK__KitOrder__2557E11BB0E465B0");
+            entity.HasKey(e => new { e.KitId, e.OrderId }).HasName("PK__KitOrder__2557E11B4BD6FB58");
 
             entity.ToTable("KitOrder");
 
             entity.HasOne(d => d.Kit).WithMany(p => p.KitOrders)
                 .HasForeignKey(d => d.KitId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__KitOrder__KitId__4AB81AF0");
+                .HasConstraintName("FK__KitOrder__KitId__5DCAEF64");
 
             entity.HasOne(d => d.Order).WithMany(p => p.KitOrders)
                 .HasForeignKey(d => d.OrderId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__KitOrder__OrderI__4BAC3F29");
+                .HasConstraintName("FK__KitOrder__OrderI__5EBF139D");
         });
 
         modelBuilder.Entity<Method>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Method__3214EC07031F3781");
+            entity.HasKey(e => e.Id).HasName("PK__Method__3214EC07E825D79F");
 
             entity.ToTable("Method");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Name).HasMaxLength(100);
             entity.Property(e => e.NormalizedName).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Order__3214EC079898F50C");
+            entity.HasKey(e => e.Id).HasName("PK__Order__3214EC070247DA3B");
 
             entity.ToTable("Order");
 
@@ -133,12 +130,12 @@ public partial class KitStemHubWpfContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Order__UserId__440B1D61");
+                .HasConstraintName("FK__Order__UserId__571DF1D5");
         });
 
         modelBuilder.Entity<Payment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Payment__3214EC07598E191F");
+            entity.HasKey(e => e.Id).HasName("PK__Payment__3214EC075F759071");
 
             entity.ToTable("Payment");
 
@@ -147,33 +144,32 @@ public partial class KitStemHubWpfContext : DbContext
             entity.HasOne(d => d.Method).WithMany(p => p.Payments)
                 .HasForeignKey(d => d.MethodId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Payment__MethodI__47DBAE45");
+                .HasConstraintName("FK__Payment__MethodI__5AEE82B9");
 
             entity.HasOne(d => d.Order).WithMany(p => p.Payments)
                 .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__Payment__OrderId__46E78A0C");
+                .HasConstraintName("FK__Payment__OrderId__59FA5E80");
         });
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Role__3214EC0791CC11AD");
+            entity.HasKey(e => e.Id).HasName("PK__Role__3214EC0785EE4B47");
 
             entity.ToTable("Role");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.NormalizedName).HasMaxLength(100);
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User__3214EC078EA2422E");
+            entity.HasKey(e => e.Id).HasName("PK__User__3214EC07543A7864");
 
             entity.ToTable("User");
 
-            entity.HasIndex(e => e.Username, "UQ__User__536C85E4C56ED643").IsUnique();
+            entity.HasIndex(e => e.Username, "UQ__User__536C85E4BB2F83B3").IsUnique();
 
-            entity.HasIndex(e => e.Email, "UQ__User__A9D1053439D53D35").IsUnique();
+            entity.HasIndex(e => e.Email, "UQ__User__A9D10534CB685BD4").IsUnique();
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Address).HasMaxLength(255);
@@ -194,7 +190,7 @@ public partial class KitStemHubWpfContext : DbContext
 
             entity.HasOne(d => d.Role).WithMany(p => p.Users)
                 .HasForeignKey(d => d.RoleId)
-                .HasConstraintName("FK__User__RoleId__3A81B327");
+                .HasConstraintName("FK__User__RoleId__4D94879B");
         });
 
         OnModelCreatingPartial(modelBuilder);

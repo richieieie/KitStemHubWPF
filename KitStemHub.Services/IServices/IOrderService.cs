@@ -1,4 +1,5 @@
 ﻿using KitStemHub.Repositories.Models;
+using KitStemHub.Services.DTOs.Requests;
 using KitStemHub.Services.DTOs.Responses;
 using System;
 using System.Collections.Generic;
@@ -17,5 +18,6 @@ namespace KitStemHub.Services.IServices
 
         bool updateOrderStatus(Order order);
         List<KitInOrderDetailDTO> GetKitInOrderDetails(Guid orderId);
+        public bool CreateOrder(Guid userId, string shippingAddress, string phoneNumber, string? note);
     }
 }

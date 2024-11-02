@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace KitStemHub.Repositories.Repositories
 {
-    public class PaymentRepository : GenericRepository<Payment>, IPaymentRepository
+    public class PaymentMethodRepository : GenericRepository<Method>, IPaymentMethodRepository
     {
-        public PaymentRepository(KitStemHubWpfContext context) : base(context)
+        public PaymentMethodRepository(KitStemHubWpfContext context) : base(context)
         {
         }
 

@@ -1,0 +1,61 @@
+﻿<Window x:Class="KitStemHub.App.KitDashboardManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KitStemHub.App"
+        mc:Ignorable="d"
+        Title="KitDashboardManager" Height="1080" Width="1920">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Title row -->
+            <RowDefinition Height="Auto"/>
+            <!-- Search panel row -->
+            <RowDefinition Height="*"/>
+            <!-- DataGrid row (takes remaining space) -->
+            <RowDefinition Height="Auto"/>
+            <!-- Navigation buttons row -->
+        </Grid.RowDefinitions>
+        <TextBlock Text="Quản Lí Danh Sách Kit" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20" Grid.Row="0"/>
+        <StackPanel Orientation="Horizontal" Margin="23,20,0,20" HorizontalAlignment="Left" Grid.Row="1">
+            <Label FontSize="24" VerticalAlignment="Center">Tên Kit:</Label>
+            <TextBox x:Name="kitNameSearchTxtBox" Width="250" Height="30" Margin="10,0,0,0"/>
+            <Label FontSize="24" VerticalAlignment="Center" Margin="50,0,0,0">Thể loại:</Label>
+            <ComboBox x:Name="categorySearchCb" Width="200" Height="30" Margin="10,0,0,0" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedIndex="0"></ComboBox>
+            <Button x:Name="searchBtn" Content="Tìm Kiếm" Width="100" Height="30" Margin="50,0,0,0" Click="searchBtn_Click"/>
+            <Button x:Name="createBtn" Content="Thêm mới"  Width="100" Height="30" Margin="50,0,0,0" Click="createBtn_Click"/>
+        </StackPanel>
+        <DataGrid x:Name="kitDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Height="800" VerticalAlignment="Top" Margin="20,0,20,200" Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã Kit" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Tên Kit" Binding="{Binding Name}" Width="150"/>
+                <DataGridTextColumn ElementStyle="{StaticResource WrapText}" Header="Mô Tả Ngắn Gọn" Binding="{Binding Breif}" Width="200"/>
+                <DataGridTextColumn ElementStyle="{StaticResource WrapText}" Header="Mô Tả Chi Tiết" Binding="{Binding Description}" Width="*"/>
+                <DataGridTextColumn Header="Giá Vốn" Binding="{Binding PurchaseCost}" Width="100"/>
+                <DataGridTextColumn Header="Giá Bán" Binding="{Binding Price}" Width="100"/>
+                <DataGridTextColumn Header="Thể Loại" Binding="{Binding Category.Name}" Width="100"/>
+                <DataGridTextColumn Header="Tình Trạng" Binding="{Binding Status}" Width="100"/>
+                <DataGridTemplateColumn Header="Hành động" Width="300">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button Tag="{Binding Id}" x:Name="deleteOrRestoreBtn" Content="Vô hiệu hóa" Width="100" Height="30" Click="deleteOrRestoreBtn_Click"/>
+                                <Button Tag="{Binding Id}" x:Name="updateBtn" Content="Sửa" Width="100" Height="30" Click="editBtn_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,20" Grid.Row="3">
+            <Button x:Name="previousBtn" FontSize="24" Content="Previous" Width="120" Margin="10,0" Height="50" Click="previousBtn_Click"/>
+            <Button x:Name="nextBtn" FontSize="24" Content="Next" Width="120" Margin="10,0" Height="50" Click="nextBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
