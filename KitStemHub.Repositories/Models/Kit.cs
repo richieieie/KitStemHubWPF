@@ -1,4 +1,7 @@
-﻿namespace KitStemHub.Repositories.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace KitStemHub.Repositories.Models;
 
 public partial class Kit
 {

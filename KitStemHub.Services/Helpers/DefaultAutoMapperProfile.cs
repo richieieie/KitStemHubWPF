@@ -21,6 +21,7 @@ namespace KitStemHub.Services.Helpers
 
             //Map for cart
             CreateMap<Cart, CartCreateDTO>().ReverseMap();
+            CreateMap<Cart, CartResponseDTO>().ReverseMap();
 
             //Map for Order
             CreateMap<Order, OrderCreateDTO>().ReverseMap();

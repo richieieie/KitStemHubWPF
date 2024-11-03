@@ -1,3 +1,4 @@
+using KitStemHub.Repositories.Models;
 using KitStemHub.Services.DTOs.Responses;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -20,5 +21,7 @@ namespace KitStemHub.Services.IServices
 
         // Delete a category by Id
         Task<bool> DeleteCategoryAsync(int id);
+
+        List<Category> GetAll();
     }
 }

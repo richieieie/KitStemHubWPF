@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="CartUI.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="KitCreateUI.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,6 +25,9 @@
     <Compile Update="OrderDetail.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="OrderUI.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PaymentMethod\PaymentMethodAddWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -30,6 +36,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="CartUI.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="KitCreateUI.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -46,6 +55,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="OrderDetail.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="OrderUI.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="PaymentMethod\PaymentMethodAddWindow.xaml">
