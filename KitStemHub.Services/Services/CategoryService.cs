@@ -59,5 +59,10 @@ namespace KitStemHub.Services.Services
             _categoryRepository.PrepareRemove(category);
             return await _categoryRepository.SaveAsync();
         }
+
+        public List<Category> GetAll()
+        {
+            return _categoryRepository.GetAll();
+        }
     }
 }
