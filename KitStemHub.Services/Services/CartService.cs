@@ -45,7 +45,17 @@ namespace KitStemHub.Services.Services
         {
             var carts = _cartRepository.GetAllCartByUserId(userId);
             var cartDTO = _mapper.Map<List<CartResponseDTO>>(carts);
+            cartDTO.Sum(c => c.Total = (int)c.Quantity! * c.Kit.Price);
             return cartDTO;
+        }
+
+        public int GetTotal(Guid userId)
+        {
+            var carts = _cartRepository.GetAllCartByUserId(userId);
+            var cartDTO = _mapper.Map<List<CartResponseDTO>>(carts);
+            cartDTO.Sum(c => c.Total = (int)c.Quantity! * c.Kit.Price);
+            var total = cartDTO.Sum(c => c.Total);
+            return total;
         }
 
         public bool RemoveAll(Guid userId)
@@ -65,6 +75,23 @@ namespace KitStemHub.Services.Services
                     break;
                 }
             }
+            return result;
+        }
+
+        public bool RemoveByKitId(Guid userId, int kitId)
+        {
+            var result = false;
+            var kit = _cartRepository.GetExistingKit(userId, kitId);
+            result = _cartRepository.Remove(kit);
+            return result;
+        }
+
+        public bool UpdateByKitId(Guid userId, int kitId, int quantity)
+        {
+            var result = false;
+            var kit = _cartRepository.GetExistingKit(userId, kitId);
+            kit.Quantity = quantity;
+            result = _cartRepository.Update(kit);
             return result;
         }
     }

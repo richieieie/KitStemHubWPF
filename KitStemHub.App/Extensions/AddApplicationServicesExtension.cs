@@ -53,6 +53,7 @@ namespace KitStemHub.App.Extensions
 
             services.AddTransient<KitCreateUI>();
             services.AddTransient<KitDashboardManager>();
+            services.AddTransient<OrderUI>();
             services.AddTransient<Window1>();
 
             return services;

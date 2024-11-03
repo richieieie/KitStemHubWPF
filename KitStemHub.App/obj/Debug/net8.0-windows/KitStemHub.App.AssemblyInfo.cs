@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KitStemHub.App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ada368015a20fcab388ed70009c8933fde9a009a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df05ebabc3841539ec006e13e5de071060c9fde2")]
 [assembly: System.Reflection.AssemblyProductAttribute("KitStemHub.App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KitStemHub.App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
