@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KitStemHub.App"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
+        Title="Login" Height="400" Width="350" FontSize="14"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Border Background="#2e3137" CornerRadius="20" Margin="20">
+            <StackPanel Margin="20">
+                <Label Content="Login" Foreground="white" FontSize="25" HorizontalAlignment="Center" />
+                <Separator />
+                <Label Content="Email" Foreground="white"/>
+                <TextBox x:Name="txtEmail" Background="#545d6a" Foreground="white" FontSize="18" Margin="0,5,0,10"/>
+                <Label Content="Password" Foreground="white" />
+                <PasswordBox Name="txtPassword" Background="#545d6a" Foreground="white" FontSize="18" Margin="0,5,0,10"/>
+                <Button Name="btnSubmit" Click="btnSubmit_Click" Content="Submit" Margin="60,10" Background="#545d6a" Foreground="white" HorizontalAlignment="Center" Width="100"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
