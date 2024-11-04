@@ -45,7 +45,22 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Button Tag="{Binding Id}" x:Name="deleteOrRestoreBtn" Content="Vô hiệu hóa" Width="100" Height="30" Click="deleteOrRestoreBtn_Click"/>
+                                <Button Tag="{Binding Id}" x:Name="deleteOrRestoreBtn" Width="100" Height="30" Click="deleteOrRestoreBtn_Click">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Style.Triggers>
+                                                <!-- Check if Status is false, then change content -->
+                                                <DataTrigger Binding="{Binding Status}" Value="Không có sẵn">
+                                                    <Setter Property="Content" Value="Khôi phục"/>
+                                                </DataTrigger>
+                                                <!-- Check if Status is true, then change content explicitly -->
+                                                <DataTrigger Binding="{Binding Status}" Value="Có sẵn">
+                                                    <Setter Property="Content" Value="Vô hiệu hóa"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
                                 <Button Tag="{Binding Id}" x:Name="updateBtn" Content="Sửa" Width="100" Height="30" Click="editBtn_Click"/>
                             </StackPanel>
                         </DataTemplate>

@@ -1,28 +1,38 @@
-﻿using KitStemHub.Services.DTOs.Requests;
+﻿using KitStemHub.Repositories.Models;
+using KitStemHub.Services.DTOs.Requests;
 using KitStemHub.Services.IServices;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
 using System.Windows;
 
 namespace KitStemHub.App
 {
     /// <summary>
-    /// Interaction logic for KitCreateUI.xaml
+    /// Interaction logic for KitUpdateUI.xaml
     /// </summary>
-    public partial class KitCreateUI : Window
+    public partial class KitUpdateUI : Window
     {
+        public int KitId { get; set; }
+        public Action<object, RoutedEventArgs>? KitLoaded { get; internal set; }
         private readonly IKitService _kitService;
         private readonly ICategoryService _categoryService;
-
-        public Action<object, RoutedEventArgs>? KitLoaded { get; internal set; }
-
-        public KitCreateUI(IKitService kitService, ICategoryService categoryService)
+        public KitUpdateUI(IKitService kitService, ICategoryService categoryService)
         {
             _kitService = kitService;
             _categoryService = categoryService;
             InitializeComponent();
             Loaded += KitCategory_Loaded;
+            Loaded += KitDetails_Loaded;
+        }
+
+        private void KitDetails_Loaded(object sender, RoutedEventArgs e)
+        {
+            var kitDTO = _kitService.GetById(KitId);
+            kitCategoryCbBox.SelectedValue = kitDTO.CategoryId;
+            kitNameTxtBox.Text = kitDTO.Name;
+            kitBriefTxtBox.Text = kitDTO.Breif;
+            kitDescriptionTxtBox.Text = kitDTO.Description;
+            kitPriceTxtBox.Text = kitDTO.Price.ToString();
+            kitPurchaseCostTxtBox.Text = kitDTO.PurchaseCost.ToString();
+            kitImgBtn.Content = kitDTO.ImageUrl;
         }
 
         private void KitCategory_Loaded(object sender, RoutedEventArgs e)
@@ -35,9 +45,14 @@ namespace KitStemHub.App
             }
         }
 
-        private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void kitImgBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            dlg.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            if (dlg.ShowDialog() == true)
+            {
+                kitImgBtn.Content = dlg.FileName;
+            }
         }
 
         private void saveKitBtn_Click(object sender, RoutedEventArgs e)
@@ -48,7 +63,6 @@ namespace KitStemHub.App
             var description = kitDescriptionTxtBox.Text;
             var price = kitPriceTxtBox.Text;
             var purchaseCost = kitPurchaseCostTxtBox.Text;
-            var status = kitStatusCbBox.SelectedValue.ToString();
             var imageUrl = kitImgBtn.Content;
             if (name == null || name.Length == 0)
             {
@@ -71,8 +85,9 @@ namespace KitStemHub.App
                 return;
             }
 
-            var kitCreateDTO = new KitCreateDTO
+            var kitUpdateDTO = new KitUpdateDTO
             {
+                Id = KitId,
                 CategoryId = (int)categoryId,
                 Name = name,
                 Breif = breif,
@@ -80,9 +95,8 @@ namespace KitStemHub.App
                 Price = parsedPrice,
                 PurchaseCost = parsedPurchaseCost,
                 ImageUrl = kitImgBtn.Content.ToString(),
-                Status = status == "Available" ? true : false
             };
-            var result = _kitService.Create(kitCreateDTO);
+            var result = _kitService.Update(kitUpdateDTO);
             if (result)
             {
                 Close();
@@ -90,17 +104,7 @@ namespace KitStemHub.App
             }
             else
             {
-                MessageBox.Show("Failed to create kit");
-            }
-        }
-
-        private void kitImgBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-            dlg.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-            if (dlg.ShowDialog() == true)
-            {
-                kitImgBtn.Content = dlg.FileName;
+                MessageBox.Show("Failed to update kit");
             }
         }
     }

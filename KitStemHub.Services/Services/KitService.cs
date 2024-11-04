@@ -27,6 +27,12 @@ namespace KitStemHub.Services.Services
             return (_mapper.Map<IEnumerable<KitResponseDTO>>(kits), totalPages);
         }
 
+        public KitResponseDTO GetById(int id)
+        {
+            var kit = _kitRepository.GetById(id);
+            return _mapper.Map<KitResponseDTO>(kit);
+        }
+
         public bool Create(KitCreateDTO kitCreateDTO)
         {
             try
@@ -60,6 +66,38 @@ namespace KitStemHub.Services.Services
             try
             {
                 return _kitRepository.DeleteOrRestoreById(id);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool Update(KitUpdateDTO kitUpdateDTO)
+        {
+            try
+            {
+                var kit = _kitRepository.GetById(kitUpdateDTO.Id);
+                if (kit == null)
+                {
+                    return false;
+                }
+
+                kit = _mapper.Map(kitUpdateDTO, kit);
+                var isSuccess = _kitRepository.Update(kit);
+                var fileExtension = Path.GetExtension(kitUpdateDTO.ImageUrl);
+                var assetsFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Images", "Kits");
+                Directory.CreateDirectory(assetsFilePath);
+                var storeFilePath = Path.Combine(assetsFilePath, $"{kit.Id}{fileExtension}");
+                if (isSuccess && kit.ImageUrl != storeFilePath.ToString())
+                {
+                    File.Copy(kitUpdateDTO.ImageUrl, storeFilePath, true);
+
+                    kit.ImageUrl = storeFilePath;
+                    _kitRepository.Update(kit);
+                }
+
+                return isSuccess;
             }
             catch
             {

@@ -16,6 +16,12 @@
     <Compile Update="KitDashboardManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="KitShoppingWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="KitUpdateUI.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -43,6 +49,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="KitDashboardManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="KitShoppingWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="KitUpdateUI.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LoginWindow.xaml">
