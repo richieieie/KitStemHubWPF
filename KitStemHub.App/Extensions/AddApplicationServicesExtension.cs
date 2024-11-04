@@ -24,7 +24,6 @@ namespace KitStemHub.App.Extensions
             services.AddAutoMapper(typeof(DefaultAutoMapperProfile));
 
             // Repositories
-            services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<IPaymentMethodRepository, PaymentMethodRepository>();
             services.AddScoped<ICartRepository, CartRepository>();
@@ -33,7 +32,6 @@ namespace KitStemHub.App.Extensions
             services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             // Services
-            services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IPaymentService, PaymentService>();
             services.AddScoped<IPaymentMethodService, PaymentMethodService>();
             services.AddScoped<ICartService, CartService>();
@@ -54,6 +52,7 @@ namespace KitStemHub.App.Extensions
             services.AddTransient<KitCreateUI>();
             services.AddTransient<KitUpdateUI>();
             services.AddTransient<KitDashboardManager>();
+            services.AddTransient<KitShoppingWindow>();
             services.AddTransient<OrderUI>();
             services.AddTransient<Window1>();
 

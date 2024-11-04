@@ -56,7 +56,7 @@ namespace KitStemHub.App
             var categoryId = (int)categorySearchCb.SelectedValue;
             var kitName = kitNameSearchTxtBox.Text;
             currentPage = currentPage > 0 ? currentPage - 1 : currentPage;
-            var (kits, _) = _kitService.Get(currentPage, pageSize, kitName, 0);
+            var (kits, _) = _kitService.Get(currentPage, pageSize, kitName, categoryId);
             kitDataGrid.ItemsSource = kits;
         }
 
@@ -65,7 +65,7 @@ namespace KitStemHub.App
             var categoryId = (int)categorySearchCb.SelectedValue;
             var kitName = kitNameSearchTxtBox.Text;
             currentPage = currentPage < totalPages ? currentPage + 1 : currentPage;
-            var (kits, _) = _kitService.Get(currentPage, pageSize, kitName, 0);
+            var (kits, _) = _kitService.Get(currentPage, pageSize, kitName, categoryId);
             kitDataGrid.ItemsSource = kits;
         }
 

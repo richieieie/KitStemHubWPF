@@ -85,14 +85,12 @@ namespace KitStemHub.Services.Services
 
                 kit = _mapper.Map(kitUpdateDTO, kit);
                 var isSuccess = _kitRepository.Update(kit);
-                if (isSuccess && kit.ImageUrl != kitUpdateDTO.ImageUrl)
+                var fileExtension = Path.GetExtension(kitUpdateDTO.ImageUrl);
+                var assetsFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Images", "Kits");
+                Directory.CreateDirectory(assetsFilePath);
+                var storeFilePath = Path.Combine(assetsFilePath, $"{kit.Id}{fileExtension}");
+                if (isSuccess && kit.ImageUrl != storeFilePath.ToString())
                 {
-                    var fileExtension = Path.GetExtension(kitUpdateDTO.ImageUrl);
-
-                    var assetsFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "Images", "Kits");
-                    Directory.CreateDirectory(assetsFilePath);
-                    var storeFilePath = Path.Combine(assetsFilePath, $"{kit.Id}{fileExtension}");
-
                     File.Copy(kitUpdateDTO.ImageUrl, storeFilePath, true);
 
                     kit.ImageUrl = storeFilePath;
