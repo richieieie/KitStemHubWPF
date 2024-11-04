@@ -31,7 +31,8 @@ namespace KitStemHub.App
             ServiceProvider = serviceCollection.BuildServiceProvider();
 
             //Remember to delete this:
-            var mainWindow = ServiceProvider.GetRequiredService<KitDashboardManager>();
+            var mainWindow = ServiceProvider.GetRequiredService<CartUI>();
+
             mainWindow.Show();
         }
     }

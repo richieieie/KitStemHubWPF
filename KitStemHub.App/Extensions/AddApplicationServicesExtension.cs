@@ -45,12 +45,20 @@ namespace KitStemHub.App.Extensions
             services.AddTransient<LoginWindow>();
             services.AddTransient<OrderDashboardStaff>();
             services.AddTransient<PaymentMethodView>();
+            
+            services.AddTransient<CartUI>();
+           
+         
+
+
             services.AddTransient<KitCreateUI>();
             services.AddTransient<KitUpdateUI>();
             services.AddTransient<KitDashboardManager>();
+            services.AddTransient<OrderUI>();
             services.AddTransient<Window1>();
 
             return services;
         }
     }
 }
+
