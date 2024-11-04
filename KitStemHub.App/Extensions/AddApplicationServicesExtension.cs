@@ -31,7 +31,7 @@ namespace KitStemHub.App.Extensions
             services.AddScoped<IKitRepository, KitRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
-
+            services.AddScoped<IUserRepository, UserRepository>();
             // Services
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IPaymentService, PaymentService>();
@@ -40,7 +40,7 @@ namespace KitStemHub.App.Extensions
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IKitService, KitService>();
             services.AddScoped<ICategoryService, CategoryService>();
-
+            services.AddScoped<IUserService, UserService>();
             // WPF components
             services.AddTransient<LoginWindow>();
             services.AddTransient<OrderDashboardStaff>();
@@ -53,6 +53,8 @@ namespace KitStemHub.App.Extensions
             services.AddTransient<KitCreateUI>();
             services.AddTransient<KitDashboardManager>();
             services.AddTransient<Window1>();
+
+            services.AddTransient<StaffManageDashboard>();
 
             return services;
         }
