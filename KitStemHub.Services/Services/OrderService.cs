@@ -114,14 +114,14 @@ namespace KitStemHub.Services.Services
                     OrderId = orderId,
                     KitQuantity = c.Quantity,
                 }).ToList(),
-                Payment = new PaymentCreateDTO()
+                Payments = carts.Select(c => new PaymentCreateDTO
                 {
                     Id = Guid.NewGuid(),
                     OrderId = orderId,
                     MethodId = 1,
                     CreatedAt = createAt,
-                    Status = false,
-                }
+                    Status = true,
+                }).ToList(),
             };
 
             var newOrder = _mapper.Map<Order>(orderDTO);
