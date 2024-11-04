@@ -22,7 +22,7 @@ namespace KitStemHub.Repositories.IRepositories
         bool Create(IEnumerable<T> entities);
         bool Update(T entity);
         bool Remove(T entity);
-
+        void Detach(T entity);
         T? GetById(int id);
         T? GetById(string code);
         T? GetById(Guid code);

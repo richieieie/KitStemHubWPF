@@ -1,5 +1,6 @@
 ﻿using KitStemHub.Repositories.IRepositories;
 using KitStemHub.Repositories.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,41 +9,46 @@ using System.Threading.Tasks;
 
 namespace KitStemHub.Repositories.Repositories
 {
-    
-    public class UserRepository : IUserRepository
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
-        private readonly KitStemHubWpfContext _context;
-
-        public UserRepository(KitStemHubWpfContext context)
+        public UserRepository(KitStemHubWpfContext context) : base(context)
         {
-            _context = context;
+        }
+
+        public List<User> GetUsersByRole(string roleName, int? skip = null, int? take = null)
+        {
+            return GetFilter(
+                filter: user => user.Role != null && user.Role.Name == roleName,
+                includes: query => query.Include(user => user.Role),
+                skip: skip,
+                take: take
+            ).Item1.ToList();
         }
 
         public void AddUser(User user)
         {
-            _context.Users.Add(user);
-            _context.SaveChanges();
+            _dbContext.Users.Add(user);
+            _dbContext.SaveChanges();
         }
 
         public bool UserExists(string username, string email)
         {
-            return _context.Users.Any(u => u.Username == username || u.Email == email);
+            return  _dbContext.Users.Any(u => u.Username == username || u.Email == email);
         }
 
         public User GetById(Guid id)
         {
-            return _context.Users.FirstOrDefault(a => a.Id == id);
+            return _dbContext.Users.FirstOrDefault(a => a.Id == id);
         }
 
         public int? Login(string email, string password)
         {
-            var user = _context.Users.FirstOrDefault(p => p.Email == email && p.Password == password);
+            var user = _dbContext.Users.FirstOrDefault(p => p.Email == email && p.Password == password);
             if (user == null)
             {
                 return 0;
             }
             return user.RoleId;
         }
-
     }
 }

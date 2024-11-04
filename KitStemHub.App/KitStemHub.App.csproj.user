@@ -40,6 +40,9 @@
     <Compile Update="PaymentMethod\PaymentMethodView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="StaffManageDashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="RegisterWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

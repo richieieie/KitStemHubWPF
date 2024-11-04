@@ -102,6 +102,7 @@ namespace KitStemHub.Repositories.Repositories
 
         public virtual bool Update(T entity)
         {
+
             var tracker = _dbContext.Attach(entity);
             tracker.State = EntityState.Modified;
             return _dbContext.SaveChanges() > 0;
@@ -128,6 +129,15 @@ namespace KitStemHub.Repositories.Repositories
         public virtual T? GetById(Guid code)
         {
             return _dbContext.Set<T>().Find(code);
+        }
+
+        public virtual void Detach(T entity)
+        {
+            var entry = _dbContext.Entry(entity);
+            if (entry != null)
+            {
+                entry.State = EntityState.Detached;
+            }
         }
 
         #region Asynchronous

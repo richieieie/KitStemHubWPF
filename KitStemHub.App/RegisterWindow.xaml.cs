@@ -1,4 +1,5 @@
 ﻿using KitStemHub.Repositories.Models;
+using KitStemHub.Services.IServices;
 using KitStemHub.Services.Services;
 using System;
 using System.Collections.Generic;
@@ -21,9 +22,9 @@ namespace KitStemHub.App
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        private readonly UserService _userService;
+        private readonly IUserService _userService;
 
-        public RegisterWindow(UserService userService)
+        public RegisterWindow(IUserService userService)
         {
             InitializeComponent();
             _userService = userService;
@@ -42,8 +43,7 @@ namespace KitStemHub.App
                 LastName = txtLastName.Text,
                 PhoneNumber = txtPhoneNumber.Text,
                 Address = txtAddress.Text,
-                RoleId = (int?)RoleComboBox.SelectedValue,
-                Status = StatusCheckBox.IsChecked
+                
             };
 
             if (_userService.RegisterUser(newUser))
