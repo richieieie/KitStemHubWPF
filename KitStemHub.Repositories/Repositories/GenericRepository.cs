@@ -1,12 +1,7 @@
 ﻿using KitStemHub.Repositories.IRepositories;
 using KitStemHub.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KitStemHub.Repositories.Repositories
 {
@@ -195,8 +190,14 @@ namespace KitStemHub.Repositories.Repositories
         public virtual async Task<bool> CreateAsync(T entity)
         {
             _dbContext.Add(entity);
-            return await _dbContext.SaveChangesAsync() > 0;
+            var result = await _dbContext.SaveChangesAsync() > 0;
+
+            // Detach the entity after saving to avoid tracking conflicts
+            _dbContext.Entry(entity).State = EntityState.Detached;
+
+            return result;
         }
+
 
         public virtual async Task<bool> CreateAsync(IEnumerable<T> entities)
         {
@@ -242,6 +243,7 @@ namespace KitStemHub.Repositories.Repositories
         public virtual void PrepareCreate(T entity)
         {
             _dbContext.Add(entity);
+
         }
 
         public virtual void PrepareCreate(IEnumerable<T> entities)

@@ -1,0 +1,29 @@
+﻿<Window x:Class="KitStemHub.App.KitUpdateUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KitStemHub.App"
+        mc:Ignorable="d"
+        Title="KitUpdateUI" Height="500" Width="500">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Update Kit" VerticalAlignment="Top"/>
+        <StackPanel Margin="0,31,0,0">
+            <Label Content="Category" Width="200"/>
+            <ComboBox x:Name="kitCategoryCbBox" Width="200" DisplayMemberPath="Name" SelectedValuePath="Id"/>
+            <Label Content="Name" Width="200"/>
+            <TextBox x:Name="kitNameTxtBox" Width="200"/>
+            <Label Content="Brief" Width="200"/>
+            <TextBox x:Name="kitBriefTxtBox" Width="200"/>
+            <Label Content="Description" Width="200"/>
+            <TextBox x:Name="kitDescriptionTxtBox" Width="200"/>
+            <Label Content="Purchase Cost" Width="200"/>
+            <TextBox x:Name="kitPurchaseCostTxtBox" Width="200"/>
+            <Label Content="Price" Width="200"/>
+            <TextBox x:Name="kitPriceTxtBox" Width="200"/>
+            <Label Content="Image" Width="200"/>
+            <Button x:Name="kitImgBtn" Width="200" Click="kitImgBtn_Click">Choose File</Button>
+            <Button x:Name="saveKitBtn" Content="Save" Width="200" Margin="15" Click="saveKitBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

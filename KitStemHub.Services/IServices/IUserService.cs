@@ -1,4 +1,8 @@
+
 ﻿using KitStemHub.Repositories.Models;
+using KitStemHub.Services.DTOs.Responses;
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +24,8 @@ namespace KitStemHub.Services.IServices
         bool CreateUser(User user);
         void DetachUser(User user);
         User? GetById(Guid id);
+        UserDTO GetByIdDTO(Guid id);
+        public int? Login(string email, string password);
+        bool RegisterUser(User newUser);
     }
 }

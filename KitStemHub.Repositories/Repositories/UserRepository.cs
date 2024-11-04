@@ -24,5 +24,31 @@ namespace KitStemHub.Repositories.Repositories
                 take: take
             ).Item1.ToList();
         }
+
+        public void AddUser(User user)
+        {
+            _dbContext.Users.Add(user);
+            _dbContext.SaveChanges();
+        }
+
+        public bool UserExists(string username, string email)
+        {
+            return  _dbContext.Users.Any(u => u.Username == username || u.Email == email);
+        }
+
+        public User GetById(Guid id)
+        {
+            return _dbContext.Users.FirstOrDefault(a => a.Id == id);
+        }
+
+        public int? Login(string email, string password)
+        {
+            var user = _dbContext.Users.FirstOrDefault(p => p.Email == email && p.Password == password);
+            if (user == null)
+            {
+                return 0;
+            }
+            return user.RoleId;
+        }
     }
 }

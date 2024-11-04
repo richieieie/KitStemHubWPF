@@ -8,7 +8,6 @@ namespace KitStemHub.Services.Helpers
 {
     public class DefaultAutoMapperProfile : Profile
     {
-
         public DefaultAutoMapperProfile()
         {
 
@@ -22,6 +21,7 @@ namespace KitStemHub.Services.Helpers
 
             //Map for cart
             CreateMap<Cart, CartCreateDTO>().ReverseMap();
+            CreateMap<Cart, CartResponseDTO>().ReverseMap();
 
             //Map for Order
             CreateMap<Order, OrderCreateDTO>().ReverseMap();
@@ -30,9 +30,13 @@ namespace KitStemHub.Services.Helpers
             CreateMap<KitOrder, KitOrderCreateDTO>().ReverseMap();
 
             //Map for Kit 
+            CreateMap<KitUpdateDTO, Kit>();
             CreateMap<Kit, KitResponseDTO>()
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status == true ? "Có sẵn" : "Không có sẵn"));
             CreateMap<KitCreateDTO, Kit>().ReverseMap();
+
+            //Map for User
+            CreateMap<User, UserDTO>().ReverseMap();
         }
     }
 }

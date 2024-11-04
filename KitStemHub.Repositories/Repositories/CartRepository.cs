@@ -31,5 +31,13 @@ namespace KitStemHub.Repositories.Repositories
                 .Where(c => c.UserId == userId)
                 .ToList();
         }
+
+        public List<Cart> GetAllCartByUserId(Guid userId)
+        {
+            return _dbContext.Carts
+                .Include(c => c.Kit)
+                .Where (c => c.UserId == userId).ToList();
+        }
+
     }
 }
