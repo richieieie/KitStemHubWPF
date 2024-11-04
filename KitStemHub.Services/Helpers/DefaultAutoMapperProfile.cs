@@ -30,9 +30,13 @@ namespace KitStemHub.Services.Helpers
             CreateMap<KitOrder, KitOrderCreateDTO>().ReverseMap();
 
             //Map for Kit 
+            CreateMap<KitUpdateDTO, Kit>();
             CreateMap<Kit, KitResponseDTO>()
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status == true ? "Có sẵn" : "Không có sẵn"));
             CreateMap<KitCreateDTO, Kit>().ReverseMap();
+
+            //Map for User
+            CreateMap<User, UserDTO>().ReverseMap();
 
             //Map for Payment
             CreateMap<Payment, PaymentCreateDTO>().ReverseMap();

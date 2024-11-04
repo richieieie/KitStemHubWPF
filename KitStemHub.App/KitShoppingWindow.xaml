@@ -1,0 +1,61 @@
+﻿<Window x:Class="KitStemHub.App.KitShoppingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KitStemHub.App"
+        mc:Ignorable="d"
+        Title="KitShoppingWindow" Height="1080" Width="1920">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Title row -->
+            <!-- <RowDefinition Height="Auto"/> -->
+            <!-- Search panel row -->
+            <RowDefinition Height="*"/>
+            <!-- DataGrid row (takes remaining space) -->
+            <RowDefinition Height="Auto"/>
+            <!-- Navigation buttons row -->
+        </Grid.RowDefinitions>
+        <TextBlock Text="Mua Kit" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20" Grid.Row="0"/>
+        <DataGrid x:Name="kitDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" VerticalAlignment="Center" Margin="20,0,20,0" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã Kit" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Tên Kit" Binding="{Binding Name}" Width="150"/>
+                <DataGridTemplateColumn Header="Ảnh" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding ImageUrl}" Width="100" Height="100"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn ElementStyle="{StaticResource WrapText}" Header="Mô Tả Ngắn Gọn" Binding="{Binding Breif}" Width="200"/>
+                <DataGridTextColumn ElementStyle="{StaticResource WrapText}" Header="Mô Tả Chi Tiết" Binding="{Binding Description}" Width="*"/>
+                <DataGridTextColumn Header="Giá" Binding="{Binding Price}" Width="100"/>
+                <DataGridTextColumn Header="Thể Loại" Binding="{Binding Category.Name}" Width="100"/>
+                <DataGridTemplateColumn Header="Hành động" Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Tag="{Binding Id}" x:Name="addToCartBtn" Width="150" Height="30" Click="addToCartBtn_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Content" Value="Thêm vào giỏ hàng"/>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,20" Grid.Row="2">
+            <Button x:Name="previousBtn" FontSize="24" Content="Previous" Width="120" Margin="10,0" Height="50" Click="previousBtn_Click"/>
+            <Button x:Name="nextBtn" FontSize="24" Content="Next" Width="120" Margin="10,0" Height="50" Click="nextBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

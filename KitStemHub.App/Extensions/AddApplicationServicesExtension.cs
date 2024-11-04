@@ -24,23 +24,21 @@ namespace KitStemHub.App.Extensions
             services.AddAutoMapper(typeof(DefaultAutoMapperProfile));
 
             // Repositories
-            services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<IPaymentMethodRepository, PaymentMethodRepository>();
             services.AddScoped<ICartRepository, CartRepository>();
             services.AddScoped<IKitRepository, KitRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
-
+            services.AddScoped<IUserRepository, UserRepository>();
             // Services
-            services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IPaymentService, PaymentService>();
             services.AddScoped<IPaymentMethodService, PaymentMethodService>();
             services.AddScoped<ICartService, CartService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IKitService, KitService>();
             services.AddScoped<ICategoryService, CategoryService>();
-
+            services.AddScoped<IUserService, UserService>();
             // WPF components
             services.AddTransient<LoginWindow>();
             services.AddTransient<OrderDashboardStaff>();
@@ -52,9 +50,14 @@ namespace KitStemHub.App.Extensions
 
 
             services.AddTransient<KitCreateUI>();
+            services.AddTransient<KitUpdateUI>();
             services.AddTransient<KitDashboardManager>();
+            services.AddTransient<KitShoppingWindow>();
             services.AddTransient<OrderUI>();
             services.AddTransient<Window1>();
+            services.AddTransient<RegisterWindow>();
+            
+            services.AddTransient<StaffManageDashboard>();
 
             return services;
         }
