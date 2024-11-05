@@ -28,6 +28,6 @@ namespace KitStemHub.Services.DTOs.Requests
         public string? Note { get; set; }
         public ICollection<KitOrderCreateDTO> KitOrders { get; set; } = new List<KitOrderCreateDTO>();
 
-        public PaymentCreateDTO Payment { get; set; } = new PaymentCreateDTO();
+        public ICollection<PaymentCreateDTO> Payments { get; set; } = new List<PaymentCreateDTO>();
     }
 }

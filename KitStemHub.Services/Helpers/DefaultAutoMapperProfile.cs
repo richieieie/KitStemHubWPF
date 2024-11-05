@@ -37,6 +37,9 @@ namespace KitStemHub.Services.Helpers
 
             //Map for User
             CreateMap<User, UserDTO>().ReverseMap();
+
+            //Map for Payment
+            CreateMap<Payment, PaymentCreateDTO>().ReverseMap();
         }
     }
 }
