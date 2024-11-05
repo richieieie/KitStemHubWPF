@@ -5,32 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KitStemHub.App"
         mc:Ignorable="d"
-        Title="KitShoppingWindow" Height="1080" Width="1920">
+        Title="KitShoppingWindow" Height="1080" Width="1920"
+        Background="#F5F5F5">
     <Window.Resources>
         <Style TargetType="{x:Type TextBlock}" x:Key="WrapText">
             <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#007ACC"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="120"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#005A99"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#D0D0D0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="RowBackground" Value="#F9F9F9"/>
+            <Setter Property="AlternatingRowBackground" Value="#E9E9E9"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="20,0"/>
         </Style>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Title row -->
-            <!-- <RowDefinition Height="Auto"/> -->
-            <!-- Search panel row -->
             <RowDefinition Height="*"/>
-            <!-- DataGrid row (takes remaining space) -->
             <RowDefinition Height="Auto"/>
-            <!-- Navigation buttons row -->
         </Grid.RowDefinitions>
-        <TextBlock Text="Mua Kit" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20" Grid.Row="0"/>
-        <DataGrid x:Name="kitDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" VerticalAlignment="Center" Margin="20,0,20,0" Grid.Row="1">
+        <TextBlock Text="Mua Kit" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,20,0,20"/>
+        <DataGrid x:Name="kitDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" VerticalAlignment="Stretch" Margin="20,0,20,0" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mã Kit" Binding="{Binding Id}" Width="50"/>
                 <DataGridTextColumn Header="Tên Kit" Binding="{Binding Name}" Width="150"/>
                 <DataGridTemplateColumn Header="Ảnh" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding ImageUrl}" Width="100" Height="100"/>
+                            <Image Source="{Binding ImageUrl}" Width="100" Height="100" Stretch="Uniform"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -41,12 +68,8 @@
                 <DataGridTemplateColumn Header="Hành động" Width="150">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Tag="{Binding Id}" x:Name="addToCartBtn" Width="150" Height="30" Click="addToCartBtn_Click">
-                                <Button.Style>
-                                    <Style TargetType="Button">
-                                        <Setter Property="Content" Value="Thêm vào giỏ hàng"/>
-                                    </Style>
-                                </Button.Style>
+                            <Button Tag="{Binding Id}" x:Name="addToCartBtn" Click="addToCartBtn_Click">
+                                Thêm vào giỏ hàng
                             </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -54,8 +77,8 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,20" Grid.Row="2">
-            <Button x:Name="previousBtn" FontSize="24" Content="Previous" Width="120" Margin="10,0" Height="50" Click="previousBtn_Click"/>
-            <Button x:Name="nextBtn" FontSize="24" Content="Next" Width="120" Margin="10,0" Height="50" Click="nextBtn_Click"/>
+            <Button x:Name="previousBtn" Content="Previous" Click="previousBtn_Click"/>
+            <Button x:Name="nextBtn" Content="Next" Click="nextBtn_Click"/>
         </StackPanel>
     </Grid>
 </Window>
